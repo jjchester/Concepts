@@ -22,22 +22,23 @@ struct GCDView: View {
                     .padding(.bottom)
                 Text(
                 """
-                Grand Central Dispatch, commonly referred to as GCD, is Apple's system-level concurrency library.
-                It allows developers to take advantage of the multiple cores available on your Apple devices so that heavy operations like network requests and database queries can be done asynchronously, in the background, without blocking user interaction.
+                Grand Central Dispatch, commonly referred to as GCD, is Apple's system-level concurrency framework.
+                
+                It allows developers to take advantage of the multiple cores available on your Apple devices so that computationally expensive operations like network requests and database queries can be done asynchronously, in the background, without blocking user interaction.
                 """)
                 .multilineTextAlignment(.leading)
                 
                 HStack {
                     VStack {
                         DispatchBackgroundQueueButtonView()
-                        Text("This button will execute a 3 second task on a background thread.")
+                        Text("This \"Press Me\" button will execute a 3 second task on a background thread.")
                         .font(.subheadline)
                         .multilineTextAlignment(.center)
                     }
                     Spacer()
                     VStack {
                         DispatchMainQueueButtonView()
-                        Text("This button will execute a 3 second task on the main thread.")
+                        Text("This \"Press Me\" button will execute a 3 second task on the main thread.")
                         .font(.subheadline)
                         .multilineTextAlignment(.center)
                     }
@@ -47,12 +48,50 @@ struct GCDView: View {
                 
                 Text(
                 """
-                The above example is a simple demonstration of what happens when you execute heavy tasks on background threads vs the main thread.
-                Since the main thread is responsible for handling UI interaction, if you task it with something that takes a noticable amount of time, your app will become unresponsive.
+                The above example is a simple demonstration of what happens when you execute heavy tasks on background queue vs the main queue.
+                
+                Dispatching to a background queue is easy. All you have to do is wrap whatever you need to execture in the following code:
                 """
                 )
                 .multilineTextAlignment(.leading)
                 
+                CodeBlockView(code:
+                    """
+                    DispatchQueue.global(qos: .background).async {
+                        // Whatever needs to run
+                        // in the background
+                        DispatchQueue.main.async {
+                            // Any UI updates can be dispatched
+                            // back to the main queue
+                        }
+                    }
+                    """
+                )
+                .padding(.bottom)
+                
+                Text("Create Your Own Queue")
+                    .font(.title2)
+                    .bold()
+                    .padding([.top, .bottom])
+                Text(
+                "You can also create your own serial or concurrent queues to work with if you want more control over the queues that you're using.")
+                
+                CodeBlockView(code:
+                    """
+                    let yourQueueName =
+                        DispatchQueue(
+                            // String to identify queue
+                            label: String,
+                            // Execution priority of queue items
+                            qos: DispatchQos,
+                            // Attritubtes like .concurrent, default is serial
+                            attributes: [DispatchQueue.Attributes]
+                        )
+
+                    yourQueueName.async {
+                        // Execute some async task on your queue
+                    }
+                    """)
                 Text("Dispatch Groups")
                     .font(.title2)
                     .bold()

@@ -7,10 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D029DEFC2A5B8F7400D4D8E4 /* CoreDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D029DEFB2A5B8F7400D4D8E4 /* CoreDataView.swift */; };
 		D03EEBA72A52813500552365 /* CategoryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03EEBA62A52813500552365 /* CategoryData.swift */; };
 		D03EEBAA2A52966500552365 /* GCDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03EEBA92A52966500552365 /* GCDView.swift */; };
 		D03EEBAE2A552D9F00552365 /* DispatchBackgroundQueueButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03EEBAD2A552D9F00552365 /* DispatchBackgroundQueueButtonView.swift */; };
 		D03EEBB02A55382E00552365 /* DispatchMainQueueButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03EEBAF2A55382E00552365 /* DispatchMainQueueButtonView.swift */; };
+		D03EEBB22A554B9C00552365 /* DelegatePatternView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03EEBB12A554B9C00552365 /* DelegatePatternView.swift */; };
+		D03EEBB42A554CDF00552365 /* ConceptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03EEBB32A554CDF00552365 /* ConceptView.swift */; };
 		D04294522A4BC79900CA035C /* ConceptsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04294512A4BC79900CA035C /* ConceptsApp.swift */; };
 		D04294542A4BC79900CA035C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04294532A4BC79900CA035C /* ContentView.swift */; };
 		D04294562A4BC79A00CA035C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D04294552A4BC79A00CA035C /* Assets.xcassets */; };
@@ -27,10 +30,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D029DEFB2A5B8F7400D4D8E4 /* CoreDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataView.swift; sourceTree = "<group>"; };
 		D03EEBA62A52813500552365 /* CategoryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryData.swift; sourceTree = "<group>"; };
 		D03EEBA92A52966500552365 /* GCDView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCDView.swift; sourceTree = "<group>"; };
 		D03EEBAD2A552D9F00552365 /* DispatchBackgroundQueueButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchBackgroundQueueButtonView.swift; sourceTree = "<group>"; };
 		D03EEBAF2A55382E00552365 /* DispatchMainQueueButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchMainQueueButtonView.swift; sourceTree = "<group>"; };
+		D03EEBB12A554B9C00552365 /* DelegatePatternView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegatePatternView.swift; sourceTree = "<group>"; };
+		D03EEBB32A554CDF00552365 /* ConceptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConceptView.swift; sourceTree = "<group>"; };
 		D042944E2A4BC79900CA035C /* Concepts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Concepts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D04294512A4BC79900CA035C /* ConceptsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConceptsApp.swift; sourceTree = "<group>"; };
 		D04294532A4BC79900CA035C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -62,6 +68,9 @@
 			isa = PBXGroup;
 			children = (
 				D03EEBA92A52966500552365 /* GCDView.swift */,
+				D03EEBB12A554B9C00552365 /* DelegatePatternView.swift */,
+				D03EEBB32A554CDF00552365 /* ConceptView.swift */,
+				D029DEFB2A5B8F7400D4D8E4 /* CoreDataView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -244,10 +253,13 @@
 				D03EEBA72A52813500552365 /* CategoryData.swift in Sources */,
 				D03EEBAE2A552D9F00552365 /* DispatchBackgroundQueueButtonView.swift in Sources */,
 				D042947A2A52676700CA035C /* CategoryModel.swift in Sources */,
+				D03EEBB42A554CDF00552365 /* ConceptView.swift in Sources */,
+				D029DEFC2A5B8F7400D4D8E4 /* CoreDataView.swift in Sources */,
 				D04294602A4BCA8F00CA035C /* CodeBlockView.swift in Sources */,
 				D04294542A4BC79900CA035C /* ContentView.swift in Sources */,
 				D042946A2A4BCED300CA035C /* ConceptTileView.swift in Sources */,
 				D04294672A4BCB9100CA035C /* StringExtension.swift in Sources */,
+				D03EEBB22A554B9C00552365 /* DelegatePatternView.swift in Sources */,
 				D04294652A4BCB7E00CA035C /* SearchSet.swift in Sources */,
 				D04294632A4BCB6C00CA035C /* Highlight.swift in Sources */,
 				D04294712A52566800CA035C /* Card.swift in Sources */,

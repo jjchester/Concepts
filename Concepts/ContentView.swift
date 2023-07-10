@@ -21,9 +21,8 @@ struct ContentView: View {
                 ScrollView {
                     ForEach(categories) { category in
                             NavigationLink {
-                                getTargetView(category.title)
+                                ConceptView(title: category.title)
                                     .navigationTitle(category.title)
-                                    .navigationBarTitleDisplayMode(.automatic)
                             } label: {
                                 ConceptTile(title: category.title, description: category.description)
                                     .padding([.leading, .trailing])
@@ -34,15 +33,6 @@ struct ContentView: View {
                 }
             }
         }
-    
-    private func getTargetView(_ title: String) -> some View {
-        switch title {
-        case "Grand Central Dispatch":
-            return GCDView()
-        default:
-            return GCDView()
-        }
-    }
     
     struct ContentView_Previews: PreviewProvider {
         static var previews: some View {
