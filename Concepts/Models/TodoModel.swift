@@ -7,14 +7,21 @@
 
 import Foundation
 
-class TodoModel {
+class TodoModel: ObservableObject {
     
     let todoManager = TodoManager.shared
     
     @Published var todos: [Todo] = []
+    @Published var isLoading: Bool = true
     
     init() {
-        todos = todoManager.loadTodos() ?? []
+        DispatchQueue.global(qos: .background).async {
+            let result = self.todoManager.loadTodos() ?? []
+            DispatchQueue.main.async {
+                self.todos = result
+                self.isLoading = false
+            }
+        }
     }
     
     func save(_ text: String, isDone: Bool) {
@@ -23,6 +30,8 @@ class TodoModel {
     }
     
     func move(from source: IndexSet, to destination: Int) {
+        // TODO (Pun intended)
+        // Add ordering to todo data object so that reordering the list can be persistent
         self.todos.move(fromOffsets: source, toOffset: destination)
         todoManager.saveContext()
     }

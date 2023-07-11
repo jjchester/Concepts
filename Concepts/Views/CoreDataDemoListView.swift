@@ -11,12 +11,11 @@ struct CoreDataDemoListView: View {
     
     @State var presentingAlert = false
     @State var todoText = ""
-    @State var isOn: Bool = false
 
-    let todoModel = TodoModel()
+    @StateObject var todoModel = TodoModel()
     
     var body: some View {
-        VStack(alignment: .leading) {
+        VStack() {
             Button {
                 presentingAlert.toggle()
             } label: {
@@ -30,12 +29,18 @@ struct CoreDataDemoListView: View {
             }
             .buttonStyle(.bordered)
             List {
-                ForEach (todoModel.todos) { todo in
-                    TodoView(todo)
-                }
-                .onDelete(perform: delete)
-                .onMove { from, to in
-                    todoModel.move(from: from, to: to)
+                if todoModel.isLoading {
+                    ProgressView()
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                } else {
+                    ForEach (todoModel.todos) { todo in
+                        TodoView(todo)
+                    }
+                    .onDelete(perform: delete)
+                    .onMove { from, to in
+                        todoModel.move(from: from, to: to)
+                    }
+                    .padding(.top)
                 }
             }
 
